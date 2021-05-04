@@ -208,7 +208,14 @@ def toposort(partial_order):
 
 
 def quadratic_uniform(a, b):
-    return sqrt(uniform(a * a, b * b))
+    sqrt(uniform(a * a, b * b))
+
+    p = uniform(0,1)
+    if p > 0.5:
+        return a
+    else:
+        return b
+ 
 
 
 def cumulative_distribution(values):
