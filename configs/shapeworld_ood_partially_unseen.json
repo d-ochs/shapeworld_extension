@@ -10,5 +10,16 @@
 
     "entity_counts": [1,2,3,4],    
     "size_range" : [0.15, 0.3],
-    "shade_range": 0.5
+    "shade_range": 0.5,
+
+
+    "combinations": [
+        ["semicircle", "red", "solid"],["semicircle", "green", "solid"],["semicircle", "blue", "solid"],
+        ["semicircle", "brown", "solid"],["semicircle", "magenta", "solid"],["semicircle", "cyan", "solid"],
+        ["cross", "red", "solid"],["cross", "green", "solid"],["cross", "blue", "solid"],
+        ["cross", "brown", "solid"],["cross", "magenta", "solid"],["cross", "cyan", "solid"],
+
+        ["circle", "gray", "solid"],["square", "gray", "solid"],["triangle", "gray", "solid"],
+        ["circle", "yellow", "solid"],["square", "yellow", "solid"],["triangle", "yellow", "solid"]
+    ]
 }

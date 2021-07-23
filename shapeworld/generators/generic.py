@@ -33,7 +33,8 @@ class GenericGenerator(WorldGenerator):
         validation_space_rate_range=(0.0, 1.0),
         test_space_rate_range=(0.0, 1.0),
         validation_combination_rate=0.5,
-        test_combination_rate=0.5
+        test_combination_rate=0.5,
+        combinations = None
     ):
         super(GenericGenerator, self).__init__(
             world_size=world_size,
@@ -70,6 +71,8 @@ class GenericGenerator(WorldGenerator):
         self.test_combination_rate = test_combination_rate
         self.invalid_combinations = set()
         self.invalid_validation_combinations = set()
+
+        self.combinations = combinations
 
         if self.validation_combinations is not None:
             assert len(self.validation_combinations) > 0
@@ -146,7 +149,7 @@ class GenericGenerator(WorldGenerator):
             return world
 
         for _ in range(self.num_entities * self.__class__.MAX_ATTEMPTS):
-            entity = self.sample_entity(world=world, last_entity=last_entity)
+            entity = self.sample_entity(world=world, last_entity=last_entity, combinations=self.combinations)
             assert entity.color != self.world_color
             if world.add_entity(entity, collision_tolerance=self.collision_tolerance, collision_shade_difference=self.collision_shade_difference, boundary_tolerance=self.boundary_tolerance):
                 last_entity = entity

@@ -32,8 +32,11 @@ class RandomAttributesGenerator(GenericGenerator):
         test_space_rate_range=(0.0, 1.0),
         validation_combination_rate=0.5,
         test_combination_rate=0.5,
-        max_provoke_collision_rate=0.33
+        max_provoke_collision_rate=0.33,
+        combinations = None
     ):
+
+        print(combinations)
         super(RandomAttributesGenerator, self).__init__(
             world_size=world_size,
             world_colors=world_colors,
@@ -58,8 +61,10 @@ class RandomAttributesGenerator(GenericGenerator):
             validation_space_rate_range=validation_space_rate_range,
             test_space_rate_range=test_space_rate_range,
             validation_combination_rate=validation_combination_rate,
-            test_combination_rate=test_combination_rate
+            test_combination_rate=test_combination_rate,
+            combinations= combinations
         )
+
 
         assert isinstance(max_provoke_collision_rate, float) and 0.0 <= max_provoke_collision_rate <= 1.0
         self.max_provoke_collision_rate = max_provoke_collision_rate
@@ -82,17 +87,7 @@ class RandomAttributesGenerator(GenericGenerator):
 
     def sample_entity(self, world, last_entity, combinations=None):
 
-        '''
-        combinations = [
-        ['semicircle', 'red', 'solid'],['semicircle', 'green', 'solid'],['semicircle', 'blue', 'solid'],
-        ['semicircle', 'brown', 'solid'],['semicircle', 'magenta', 'solid'],['semicircle', 'cyan', 'solid'],
-        ['cross', 'red', 'solid'],['cross', 'green', 'solid'],['cross', 'blue', 'solid'],
-        ['cross', 'brown', 'solid'],['cross', 'magenta', 'solid'],['cross', 'cyan', 'solid'],
 
-        ['circle', 'gray', 'solid'],['square', 'gray', 'solid'],['triangle', 'gray', 'solid'],
-        ['circle', 'yellow', 'solid'],['square', 'yellow', 'solid'],['triangle', 'yellow', 'solid']
-
-    ]'''
     
         if last_entity == -1:
             self.provoke_collision = random() < self.provoke_collision_rate

@@ -1,0 +1,90 @@
+
+CoGenT TEST
+
+condition A
+- squares are gray, blue, brown, or yellow
+- triangles are red, green, magenta, or cyan
+- circles have all colors
+
+
+
+[
+	['square', 'gray', 'solid'],['square', 'blue', 'solid'],['square', 'brown', 'solid'],['square', 'yellow', 'solid'],
+	['triangle', 'red', 'solid'],['triangle', 'green', 'solid'],['triangle', 'magenta', 'solid'],['triangle', 'cyan', 'solid'],
+	['circle', 'gray', 'solid'],['circle', 'blue', 'solid'],['circle', 'brown', 'solid'],['circle', 'yellow', 'solid'],
+	['circle', 'red', 'solid'],['circle', 'green', 'solid'],['circle', 'magenta', 'solid'],['circle', 'cyan', 'solid']
+]
+
+
+
+
+condition B
+- squares are red, green, magenta, or cyan
+- triangles are gray, blue, brown, or yellow
+- circles have all colors
+
+[
+	['square', 'red', 'solid'],['square', 'green', 'solid'],['square', 'magenta', 'solid'],['square', 'cyan', 'solid'],
+	['triangle', 'gray', 'solid'],['triangle', 'blue', 'solid'],['triangle', 'brown', 'solid'],['triangle', 'yellow', 'solid'],
+	['circle', 'gray', 'solid'],['circle', 'blue', 'solid'],['circle', 'brown', 'solid'],['circle', 'yellow', 'solid'],
+	['circle', 'red', 'solid'],['circle', 'green', 'solid'],['circle', 'magenta', 'solid'],['circle', 'cyan', 'solid'],
+]
+
+
+Train with condition A 20000
+
+Test with condition A 5000 and B 5000
+
+
+
+
+
+OOD Test
+
+Train on all objects but dont show some colors/shapes ever but encode them in the logic program.
+Test on Training performance.
+Test on combinations with one unseen prop and one seen prop
+Test on completly new objects 
+
+
+
+TRAIN 
+"shapes": ["circle", "square", "triangle"],
+"colors":["red","green","blue","brown","magenta","cyan"]
+
+
+Test_combinitations
+We have two new colors and two new shapes
+"new shapes": ["semicircle", "cross"],
+"new colors":["gray","yellow", ""]
+
+[
+	['semicircle', 'red', 'solid'],['semicircle', 'green', 'solid'],['semicircle', 'blue', 'solid'],
+	['semicircle', 'brown', 'solid'],['semicircle', 'magenta', 'solid'],['semicircle', 'cyan', 'solid'],
+	['cross', 'red', 'solid'],['cross', 'green', 'solid'],['cross', 'blue', 'solid'],
+	['cross', 'brown', 'solid'],['cross', 'magenta', 'solid'],['cross', 'cyan', 'solid'],
+
+	['circle', 'gray', 'solid'],['square', 'gray', 'solid'],['triangle', 'gray', 'solid'],
+	['circle', 'yellow', 'solid'],['square', 'yellow', 'solid'],['triangle', 'yellow', 'solid']
+
+]
+
+
+Test_completly_unseen
+"shapes": ["semicircle", "cross"],
+"colors":["gray","yellow"]
+
+
+
+
+
+
+
+
+
+
+
+#############COMMANDS
+python generate.py -d examples/classification/shape-multi -U -t classification -n shape     -c configs/classification/shape/multi.json -i 20000 -M -H -G --config-values --world-size 32
+python generate.py -d examples/slot_attention -U -t classification -n shape     -c configs/slot_attention.json -i 100 -M -H -G --config-values --world-size 32
+python generate.py -d examples/slot_attention -U -t classification -n shape     -c configs/slot_attention.json -i 20000 -M -H -G --config-values --world-size 32

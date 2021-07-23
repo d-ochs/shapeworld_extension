@@ -27,9 +27,11 @@ class ShapeDataset(ClassificationDataset):
         max_provoke_collision_rate=0.33,
         multi_class=True,
         count_class=False,
-        pixel_noise_stddev=0.0
+        pixel_noise_stddev=0.0,
+        combinations =None
     ):
 
+        print("jo")
         world_generator = RandomAttributesGenerator(
             world_size=world_size,
             world_colors=world_colors,
@@ -49,7 +51,8 @@ class ShapeDataset(ClassificationDataset):
             validation_count_rate=validation_count_rate,
             test_entity_counts=test_entity_counts,
             test_count_rate=test_count_rate,
-            max_provoke_collision_rate=max_provoke_collision_rate
+            max_provoke_collision_rate=max_provoke_collision_rate,
+            combinations = combinations
         )
 
         num_classes = len(world_generator.shapes) * len(world_generator.all_colors) * len(world_generator.textures)
@@ -59,7 +62,7 @@ class ShapeDataset(ClassificationDataset):
             num_classes=num_classes,
             multi_class=multi_class,
             count_class=count_class,
-            pixel_noise_stddev=pixel_noise_stddev
+            pixel_noise_stddev=pixel_noise_stddev,
         )
 
     def get_classes(self, world):

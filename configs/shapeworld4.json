@@ -7,7 +7,6 @@
     "colors":["gray","red","green","blue","brown","magenta","cyan", "yellow"],
     "collision_tolerance": 0.0,
     "entity_counts": [1,2,3,4],
-    "world_size": 32,
     "size_range" : [0.15, 0.3],
     "shade_range": 0.5
 }
