@@ -63,6 +63,8 @@ class ShapeDataset(ClassificationDataset):
         )
 
     def get_classes(self, world):
+        #print("get_classes")
+        #print({self.world_generator.shapes.index(entity.shape.name) * len(self.world_generator.all_colors) * len(self.world_generator.textures) + self.world_generator.all_colors.index(entity.color.name) * len(self.world_generator.textures) + self.world_generator.textures.index(entity.texture.name) for entity in world.entities})
         if self.count_class:
             return [self.world_generator.shapes.index(entity.shape.name) * len(self.world_generator.all_colors) * len(self.world_generator.textures) + self.world_generator.all_colors.index(entity.color.name) * len(self.world_generator.textures) + self.world_generator.textures.index(entity.texture.name) for entity in world.entities]
         elif self.multi_class:

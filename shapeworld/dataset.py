@@ -197,7 +197,10 @@ class Dataset(object):
             assert variant is None
             config.pop('directory', None)
 
+            print(config)
             for key, value in kwargs.items():
+
+                print(key, value)
                 assert key not in config
                 config[key] = value
 

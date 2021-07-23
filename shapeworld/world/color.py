@@ -57,7 +57,12 @@ class Color(object):
         else:
             assert False
         if shade_range > 0.0:
-            shade = uniform(a=-shade_range, b=shade_range)
+            p = uniform(0,1)
+            if p > 0.5:
+                shade = 0.0
+            else:
+                shade = shade_range
+            #shade = uniform(a=-shade_range, b=shade_range)
         else:
             shade = 0.0
         return Color(color, rgb, shade)
@@ -72,5 +77,6 @@ Color.colors = dict(
     magenta=(1.0, 0.0, 1.0),
     cyan=(0.0, 1.0, 1.0),
     gray=(0.5, 0.5, 0.5),
-    white=(1.0, 1.0, 1.0)
+    white=(1.0, 1.0, 1.0),
+    brown=(0.6, 0.3, 0.0)
 )

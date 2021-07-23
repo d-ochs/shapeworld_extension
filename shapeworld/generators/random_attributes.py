@@ -81,6 +81,19 @@ class RandomAttributesGenerator(GenericGenerator):
         )
 
     def sample_entity(self, world, last_entity, combinations=None):
+
+        '''
+        combinations = [
+        ['semicircle', 'red', 'solid'],['semicircle', 'green', 'solid'],['semicircle', 'blue', 'solid'],
+        ['semicircle', 'brown', 'solid'],['semicircle', 'magenta', 'solid'],['semicircle', 'cyan', 'solid'],
+        ['cross', 'red', 'solid'],['cross', 'green', 'solid'],['cross', 'blue', 'solid'],
+        ['cross', 'brown', 'solid'],['cross', 'magenta', 'solid'],['cross', 'cyan', 'solid'],
+
+        ['circle', 'gray', 'solid'],['square', 'gray', 'solid'],['triangle', 'gray', 'solid'],
+        ['circle', 'yellow', 'solid'],['square', 'yellow', 'solid'],['triangle', 'yellow', 'solid']
+
+    ]'''
+    
         if last_entity == -1:
             self.provoke_collision = random() < self.provoke_collision_rate
         elif last_entity is not None:

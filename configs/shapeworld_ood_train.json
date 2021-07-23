@@ -1,0 +1,14 @@
+{
+    "type": "classification",
+    "name": "shape",
+    "multi_class": true,
+    "count_class": false,
+    "shapes": ["circle", "square", "triangle"],
+    "colors": ["red","green","blue","brown","magenta","cyan"],
+
+    "collision_tolerance": 0.0,
+
+    "entity_counts": [1,2,3,4],    
+    "size_range" : [0.15, 0.3],
+    "shade_range": 0.5
+}
